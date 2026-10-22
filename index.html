@@ -25,7 +25,8 @@
     <li><strong>Trip content you and your group add:</strong> trip details (name, destination, dates, cover photo and optional budget), calendar events, expenses and recorded repayments between members (amounts, who paid and how they are split), photos and captions, polls and votes, and packing lists.</li>
     <li><strong>WhatsApp group link:</strong> if a trip's host links a WhatsApp group, we store that group's invite link so the trip's members can open it. To link it, the host copies the invite link in WhatsApp, and TagAlong reads the clipboard to pick it up, only after the host has started linking a group. Nothing else from the clipboard is kept. Group conversations happen in WhatsApp: TagAlong never sees your WhatsApp messages, contacts or phone number.</li>
     <li><strong>Photos:</strong> only the photos you choose with the photo picker or take with the camera. They are resized and compressed on your device before upload. The app does not access the rest of your photo library.</li>
-    <li><strong>Advertising and device data:</strong> TagAlong shows banner ads through Google AdMob. AdMob may collect your device's advertising ID, IP address, device and app information, and how you interact with ads, in order to show and measure ads, which may be personalised.</li>
+    <li><strong>Advertising and device data:</strong> TagAlong shows banner ads through Google AdMob. AdMob may collect your device's advertising ID, IP address, device and app information, and how you interact with ads, in order to show and measure ads, which may be personalised. Where the law requires it (for example in the EEA, the UK and Switzerland), Google's consent form asks for your choice before ads use your data, and you can change it at any time under <em>Settings → Ad privacy choices</em>.</li>
+    <li><strong>Crash reports:</strong> if the app crashes or hits an error, Firebase Crashlytics collects technical details such as your device model, Android version, app version, the error and the steps leading up to it, tagged with your TagAlong user ID (not your name or email). We use this only to find and fix bugs.</li>
     <li><strong>Fingerprint unlock:</strong> if you turn on fingerprint sign-in, the check is done by Android on your device. The app only learns whether it succeeded; your fingerprint data never leaves your device and is never sent to us.</li>
     <li><strong>Preferences:</strong> settings such as your theme and fingerprint choice are stored only on your device.</li>
   </ul>
@@ -43,7 +44,7 @@
 
   <h2>3. Who Can See Your Information</h2>
   <ul>
-    <li><strong>Trip members:</strong> everything added to a trip, together with your name and profile photo, is visible to all members of that trip. Anyone with a trip's invite code can join it while it is open, so only share codes with people you trust.</li>
+    <li><strong>Trip members:</strong> everything added to a trip, together with your name and profile photo, is visible to all members of that trip. Anyone with a trip's invite code can join it while it is open, so only share codes with people you trust. The host can remove members and reset the invite code at any time.</li>
     <li><strong>Your email address</strong> is not shown to other users.</li>
     <li><strong>Service providers</strong> listed below process data on our behalf to run the app.</li>
     <li>We may disclose information if required by law.</li>
@@ -52,7 +53,7 @@
   <h2>4. Third-Party Services</h2>
   <p>We use the following third-party services, each with their own privacy policies:</p>
   <ul>
-    <li><strong>Firebase (Google):</strong> sign-in, the cloud database and photo storage — <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></li>
+    <li><strong>Firebase (Google):</strong> sign-in, the cloud database, photo storage and crash reporting (Crashlytics) — <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></li>
     <li><strong>Google AdMob:</strong> advertising — <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a></li>
     <li><strong>Google Sign-In and Google Play:</strong> sign-in and app distribution — <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
   </ul>
@@ -61,13 +62,13 @@
   <h2>5. Where Your Data Is Processed</h2>
   <ul>
     <li><strong>South Africa:</strong> your profile and trip data are stored in Google Cloud's Johannesburg region.</li>
-    <li><strong>Google's global infrastructure:</strong> sign-in (Firebase Authentication), photo storage and advertising (AdMob) are operated by Google, which may process this information in other countries, including the United States.</li>
+    <li><strong>Google's global infrastructure:</strong> sign-in (Firebase Authentication), photo storage, crash reporting (Crashlytics) and advertising (AdMob) are operated by Google, which may process this information in other countries, including the United States.</li>
   </ul>
   <p>The data protection laws of these countries may differ from those where you live. All data is encrypted in transit, and access rules ensure trip content can only be read by members of that trip. By using TagAlong, you consent to your information being processed in these countries.</p>
 
   <h2>6. Data Retention and Deletion</h2>
   <ul>
-    <li>We keep your account data for as long as your account exists.</li>
+    <li>We keep your account data for as long as your account exists. Crash reports are kept by Firebase Crashlytics for up to 90 days.</li>
     <li>When a trip's host deletes the trip, everything in it (photos, expenses, events, polls, packing lists and the WhatsApp group link) is permanently deleted. The WhatsApp group itself is managed in WhatsApp.</li>
     <li>If you leave a trip, what you added to it stays visible to its remaining members, because it is part of the group's shared record.</li>
     <li>You can delete your account at any time in the app under <em>Settings → Delete Account</em>, or by request. See <a href="delete-account.html">Delete Account</a> for exactly what is deleted.</li>
