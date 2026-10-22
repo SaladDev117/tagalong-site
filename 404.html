@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TagAlong</title>
+  <!-- GitHub Pages serves this file for any missing path, at any depth, so links are absolute. -->
+  <link rel="stylesheet" href="/tagalong-site/style.css" />
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/tagalong-site/">TagAlong</a>
+    <a href="/tagalong-site/">Privacy Policy</a>
+    <a href="/tagalong-site/terms.html">Terms of Service</a>
+    <a href="/tagalong-site/delete-account.html">Delete Account</a>
+  </nav>
+
+  <!-- Invite links: /tagalong-site/join/CODE. With the app installed and App Links verified,
+       Android opens the app directly and this page never shows. -->
+  <section id="invite" class="invite" hidden>
+    <h1>You're invited to a trip</h1>
+    <p>Join your group on TagAlong with this invite code:</p>
+    <div class="code" id="code"></div>
+    <div class="buttons">
+      <a class="btn btn-primary" id="open-app" href="#">Open in TagAlong</a>
+      <a class="btn btn-secondary" id="get-app" href="https://play.google.com/store/apps/details?id=com.tagalong.app">Get TagAlong on Google Play</a>
+      <button class="btn btn-secondary" id="copy" type="button">Copy invite code</button>
+    </div>
+    <p class="hint">Don't have the app yet? Install it, sign in, then tap <em>Join a Trip</em> and enter the code.</p>
+  </section>
+
+  <section id="not-found" hidden>
+    <h1>Page not found</h1>
+    <p>That page doesn't exist. If you were sent an invite, check the link, or open TagAlong and enter the invite code under <em>Join a Trip</em>.</p>
+  </section>
+
+  <footer>TagAlong · Developed by Jason Smith</footer>
+
+  <script>
+    (function () {
+      var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.tagalong.app';
+      var match = location.pathname.match(/\/join\/([A-Za-z0-9]{6})\/?$/);
+      if (!match) {
+        document.getElementById('not-found').hidden = false;
+        return;
+      }
+
+      var code = match[1].toUpperCase();
+      document.title = 'Join a trip on TagAlong';
+      document.getElementById('code').textContent = code;
+      document.getElementById('invite').hidden = false;
+
+      // On Android, an intent:// link opens the app via tagalong://join/CODE, or falls back to
+      // the Play listing when the app isn't installed. Elsewhere, try the custom scheme.
+      var isAndroid = /Android/i.test(navigator.userAgent);
+      document.getElementById('open-app').href = isAndroid
+        ? 'intent://join/' + code + '#Intent;scheme=tagalong;package=com.tagalong.app;S.browser_fallback_url=' + encodeURIComponent(PLAY_URL) + ';end'
+        : 'tagalong://join/' + code;
+
+      var copyBtn = document.getElementById('copy');
+      copyBtn.addEventListener('click', function () {
+        var done = function () { copyBtn.textContent = 'Copied!'; };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done, function () { window.prompt('Copy this code:', code); });
+        } else {
+          window.prompt('Copy this code:', code);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
